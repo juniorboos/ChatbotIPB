@@ -21,7 +21,7 @@
         },
         {"tag": "options",
          "patterns": ["How you could help me?", "What you can do?", "What help you provide?", "How you can be helpful?", "What support is offered"],
-         "responses": ["I can guide you through location of rooms and auditoriums, class schedule, etc", "Offering support for location of rooms and auditoriums, class schedule, etc"],
+         "responses": ["I can guide you through Adverse drug reaction list, Blood pressure tracking, Hospitals and Pharmacies", "Offering support for Adverse drug reaction, Blood pressure, Hospitals and Pharmacies"],
          "context": [""]
         },
         {"tag": "adverse_drug",
@@ -39,24 +39,9 @@
          "responses": ["Please provide Patient ID", "Patient ID?"],
          "context": ["search_blood_pressure_by_patient_id"]
         },
-        {"tag": "classroom_search",
-         "patterns": ["I want to search for a classroom", "Classroom location", "I want to know where a classroom is", "Show me the location of a classroom"],
-         "responses": ["Please provide the classroom number"],
-         "context": ["search_classroom_by_number"]
-        },
-        {"tag": "search_classroom_by_number",
-         "patterns": ["109"],
-         "responses": ["In the end of the hallway"],
-         "context": [""]
-        },
-        {"tag": "search_classroom_by_number",
-         "patterns": ["120"],
-         "responses": ["Right next door"],
-         "context": [""]
-        },
-        {"tag": "search_classroom_by_number",
+        {"tag": "search_blood_pressure_by_patient_id",
          "patterns": [],
-         "responses": ["I can't find the classroom"],
+         "responses": ["Loading Blood pressure result for Patient"],
          "context": [""]
         },
         {"tag": "pharmacy_search",
