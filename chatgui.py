@@ -36,6 +36,8 @@ def bow(sentence, words, show_details=True):
                     print ("found in bag: %s" % w)
     return(np.array(bag))
 
+context = {}
+
 def predict_class(sentence, model):
     # filter out predictions below a threshold
     p = bow(sentence, words,show_details=False)
@@ -49,12 +51,21 @@ def predict_class(sentence, model):
         return_list.append({"intent": classes[r[0]], "probability": str(r[1])})
     return return_list
 
-def getResponse(ints, intents_json):
+def getResponse(ints, intents_json, userID='123', show_details=False):
     tag = ints[0]['intent']
     list_of_intents = intents_json['intents']
     for i in list_of_intents:
         if(i['tag']== tag):
-            result = random.choice(i['responses'])
+            # set context for this intent if necessary
+            if 'context' in i:
+                if show_details: print ('context:', i['context'])
+                context[userID] = i['context']
+            # check if this intent is contextual and applies to this user's conversation
+            if not 'context_filter' in i or \
+                (userID in context and 'context_filter' in i and i['context_filter'] == context[userID]):
+                if show_details: print ('tag:', i['tag'])
+                # a random response from the intent
+                result = random.choice(i['responses'])
             break
     return result
 

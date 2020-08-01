@@ -44,13 +44,23 @@
          "responses": ["Please provide the classroom number"],
          "context": ["search_classroom_by_number"]
         },
-        {"tag": "search_classroom_by_number",
+        {"tag": "classroom_109",
          "patterns": ["109"],
+         "responses": ["In the end of the hallway"],
+         "context_filter": ["search_classroom_by_number"]
+        },
+        {"tag": "classroom_109_phrases",
+         "patterns": ["Where is the classroom 109?","I want to know the location of the classroom 109","Where do I find the classroom 109?","Classroom 109"],
          "responses": ["In the end of the hallway"],
          "context": [""]
         },
-        {"tag": "search_classroom_by_number",
+        {"tag": "classroom_120",
          "patterns": ["120"],
+         "responses": ["Right next door"],
+         "context_filter": ["search_classroom_by_number"]
+        },
+        {"tag": "classroom_120_phrases",
+         "patterns": ["Where is the classroom 120?","I want to know the location of the classroom 120","Where do I find the classroom 120?","Classroom 120"],
          "responses": ["Right next door"],
          "context": [""]
         },
