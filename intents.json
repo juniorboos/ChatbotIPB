@@ -46,22 +46,32 @@
         },
         {"tag": "classroom_109",
          "patterns": ["109"],
-         "responses": ["In the end of the hallway"],
+         "responses": ["Classroom 109 is on the first floor, in the end of the hallway"],
          "context_filter": ["search_classroom_by_number"]
         },
         {"tag": "classroom_109_phrases",
          "patterns": ["Where is the classroom 109?","I want to know the location of the classroom 109","Where do I find the classroom 109?","Classroom 109"],
-         "responses": ["In the end of the hallway"],
+         "responses": ["Classroom 109 is on the first floor, in the end of the hallway"],
          "context": [""]
         },
         {"tag": "classroom_120",
          "patterns": ["120"],
-         "responses": ["Right next door"],
+         "responses": ["Classroom 120 is on the second floor, on the right"],
          "context_filter": ["search_classroom_by_number"]
         },
         {"tag": "classroom_120_phrases",
          "patterns": ["Where is the classroom 120?","I want to know the location of the classroom 120","Where do I find the classroom 120?","Classroom 120"],
-         "responses": ["Right next door"],
+         "responses": ["Classroom 120 is on the second floor, on the right"],
+         "context": [""]
+        },
+        {"tag": "auditorium",
+         "patterns": ["Auditorium"],
+         "responses": ["The auditorium is right behind you!"],
+         "context_filter": ["search_classroom_by_number"]
+        },
+        {"tag": "auditorium_phrases",
+         "patterns": ["Where is the auditorium?","I want to know the location of the auditorium","Where do I find the auditorium?","Auditorium"],
+         "responses": ["The auditorium is right behind you!"],
          "context": [""]
         },
         {"tag": "search_classroom_by_number",
