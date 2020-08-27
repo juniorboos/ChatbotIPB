@@ -13,5 +13,20 @@ def data_entry():
     c.close()
     conn.close()
     
-create_table()
-data_entry()
+# create_table()
+# data_entry()
+
+def read_from_db():
+    name = 'Milton Boos Junior'
+    # sql_select_query = """ SELECT login FROM docente WHERE nome = ?"""
+    # c.execute(sql_select_query, (name,))
+    # c.execute('SELECT login FROM docente WHERE nome = "Milton Boos Junior"')
+    c.execute('SELECT login FROM docente WHERE nome = ?', (name,))
+    data = c.fetchone()
+    print(data[0])
+    for row in data:
+        print(row)
+    
+read_from_db()
+c.close
+conn.close()
