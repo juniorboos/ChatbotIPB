@@ -103,8 +103,13 @@ def chatbot_response(msg):
         print("Entrouuuuuu")
         c.execute('SELECT login FROM docente WHERE nome = ?', (msg,))
         data = c.fetchone()
-        print(data[0])
-        res = 'Your login is ' + data[0]
+        c.execute('SELECT id_aula FROM aula_docente WHERE login = ?', (data[0],))
+        data = c.fetchone()
+        c.execute('SELECT id_sala, inicio, fim FROM aula WHERE id = ?', (data[0],))
+        dataAula = c.fetchone()
+        c.execute('SELECT nome FROM sala WHERE id = ?', (dataAula[0],))
+        dataSala = c.fetchone()
+        res = 'Your class starts at ' + dataAula[1] + ' in the classroom ' + dataSala[0]
     else:
         ints = predict_class(msg, model)
         res = getResponse(msg, ints, intents)
