@@ -16,7 +16,8 @@ intents = json.loads(open('intents.json').read())
 words = pickle.load(open('words.pkl','rb'))
 classes = pickle.load(open('classes.pkl','rb'))
 
-
+global global_context
+global_context = []
 
 def clean_up_sentence(sentence):
     # tokenize the pattern - split words into array
@@ -58,15 +59,17 @@ def predict_class(sentence, model):
 
 def getResponse(message, ints, intents_json, userID='123', show_details=True):
     tag = ints[0]['intent']
-    print(tag)
+    # print(tag)
     list_of_intents = intents_json['intents']
     for i in list_of_intents:
         if(i['tag']== tag):
-            print(i)
+            # print(i)
             # set context for this intent if necessary
             if 'context' in i:
                 if show_details: print ('context:', i['context'])
                 context[userID] = i['context']
+                global global_context
+                global_context = context[userID]
             # check if this intent is contextual and applies to this user's conversation
             if 'context_filter' in i:
                 print('Tem um contexto: ', i['context_filter'])
@@ -82,20 +85,29 @@ def getResponse(message, ints, intents_json, userID='123', show_details=True):
                     print ('tag:', i['tag'])
                     print ('User context: ', context[userID])
                 # a random response from the intent
-                if (tag == 'class_search'):
-                    print ('Message: ', message)
+                # if (tag == 'class_search'):
+                #     print ('Message: ', message)
                     # c.execute('SELECT login FROM docente WHERE nome = ?', (message,))
                     # data = c.fetchone()
                     # print(data[0])
                     # result = data[0]
-                    print(i)
+                    # print(i)
                 result = random.choice(i['responses'])
             break
     return result
 
 def chatbot_response(msg):
-    ints = predict_class(msg, model)
-    res = getResponse(msg, ints, intents)
+    print('---------')
+    print('GLOBAL: ', global_context)
+    if (global_context == ['search_class_by_student']):
+        print("Entrouuuuuu")
+        c.execute('SELECT login FROM docente WHERE nome = ?', (msg,))
+        data = c.fetchone()
+        print(data[0])
+        res = 'Your login is ' + data[0]
+    else:
+        ints = predict_class(msg, model)
+        res = getResponse(msg, ints, intents)
     return res
 
 
