@@ -98,6 +98,7 @@ def getResponse(message, ints, intents_json, userID='123', show_details=True):
 
 def chatbot_response(msg):
     print('---------')
+    global global_context
     print('GLOBAL: ', global_context)
     if (global_context == ['search_class_by_student']):
         print("Entrouuuuuu")
@@ -109,10 +110,14 @@ def chatbot_response(msg):
         dataAula = c.fetchone()
         c.execute('SELECT nome FROM sala WHERE id = ?', (dataAula[0],))
         dataSala = c.fetchone()
+        c.close
+        conn.close()
+        global_context = []
         res = 'Your class starts at ' + dataAula[1] + ' in the classroom ' + dataSala[0]
     else:
         ints = predict_class(msg, model)
         res = getResponse(msg, ints, intents)
+    print('Acabou a resposta..')
     return res
 
 
