@@ -110,8 +110,8 @@ def chatbot_response(msg):
         dataAula = c.fetchone()
         c.execute('SELECT nome FROM sala WHERE id = ?', (dataAula[0],))
         dataSala = c.fetchone()
-        c.close
-        conn.close()
+        # c.close
+        # conn.close()
         global_context = []
         res = 'Your class starts at ' + dataAula[1] + ' in the classroom ' + dataSala[0]
     else:
