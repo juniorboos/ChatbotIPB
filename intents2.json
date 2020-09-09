@@ -21,52 +21,55 @@
         },
         {"tag": "options",
          "patterns": ["How you could help me?", "What you can do?", "What help you provide?", "How you can be helpful?", "What support is offered"],
-         "responses": ["I can guide you through Adverse drug reaction list, Blood pressure tracking, Hospitals and Pharmacies", "Offering support for Adverse drug reaction, Blood pressure, Hospitals and Pharmacies"],
+         "responses": ["I can guide you through location of rooms and auditoriums, class schedule, etc", "Offering support for location of rooms and auditoriums, class schedule, etc"],
          "context": [""]
         },
-        {"tag": "adverse_drug",
-         "patterns": ["How to check Adverse drug reaction?", "Open adverse drugs module", "Give me a list of drugs causing adverse behavior", "List all drugs suitable for patient with adverse reaction", "Which drugs dont have adverse reaction?" ],
-         "responses": ["Navigating to Adverse drug reaction module"],
-         "context": [""]
+        {"tag": "class_search",
+         "patterns": ["I want to know what class I have today", "What class do I have today?", "I want to know information about my today's class", "Show me my today's class"],
+         "responses": ["Please provide your name"],
+         "context": ["search_class_by_student"]
         },
-        {"tag": "blood_pressure",
-         "patterns": ["Open blood pressure module", "Task related to blood pressure", "Blood pressure data entry", "I want to log blood pressure results", "Blood pressure data management" ],
-         "responses": ["Navigating to Blood Pressure module"],
-         "context": [""]
-        },
-        {"tag": "blood_pressure_search",
-         "patterns": ["I want to search for blood pressure result history", "Blood pressure for patient", "Load patient blood pressure result", "Show blood pressure results for patient", "Find blood pressure results by ID" ],
-         "responses": ["Please provide Patient ID", "Patient ID?"],
-         "context": ["search_blood_pressure_by_patient_id"]
-        },
-        {"tag": "search_blood_pressure_by_patient_id",
+        {"tag": "class_search",
          "patterns": [],
-         "responses": ["Loading Blood pressure result for Patient"],
+         "responses": [],
+         "context_filter": ["search_class_by_student"]
+        },
+        {"tag": "classroom_search",
+         "patterns": ["I want to search for a classroom", "Classroom location", "I want to know where a classroom is", "Show me the location of a classroom"],
+         "responses": ["Please provide the classroom number"],
+         "context": ["search_classroom_by_number"]
+        },
+        {"tag": "classroom_109",
+         "patterns": ["109"],
+         "responses": ["Classroom 109 is on the first floor, in the end of the hallway"],
+         "context_filter": ["search_classroom_by_number"]
+        },
+        {"tag": "classroom_109_phrases",
+         "patterns": ["Where is the classroom 109?","I want to know the location of the classroom 109","Where do I find the classroom 109?","Classroom 109"],
+         "responses": ["Classroom 109 is on the first floor, in the end of the hallway"],
          "context": [""]
         },
-        {"tag": "pharmacy_search",
-         "patterns": ["Find me a pharmacy", "Find pharmacy", "List of pharmacies nearby", "Locate pharmacy", "Search pharmacy" ],
-         "responses": ["Please provide pharmacy name"],
-         "context": ["search_pharmacy_by_name"]
-        },
-        {"tag": "search_pharmacy_by_name",
-         "patterns": [],
-         "responses": ["Loading pharmacy details"],
+        {"tag": "classroom_LCA_phrases",
+         "patterns": [
+                "Where is the classroom LCA?",
+                "I want to know the location of the classroom LCA",
+                "Where do I find the classroom LCA?",
+                "Classroom LCA"],
+         "responses": ["The LCA classroom is downstairs, in the CEDRI sector."],
          "context": [""]
         },
-        {"tag": "hospital_search",
-         "patterns": ["Lookup for hospital", "Searching for hospital to transfer patient", "I want to search hospital data", "Hospital lookup for patient", "Looking up hospital details" ],
-         "responses": ["Please provide hospital name or location"],
-         "context": ["search_hospital_by_params"]
+        {"tag": "auditorium_phrases",
+         "patterns": [
+                 "Where is the auditorium?",
+                 "I want to know the location of the auditorium",
+                 "Where do I find the auditorium?",
+                 "Auditorium"],
+         "responses": ["The auditorium is downstairs, turning left."],
+         "context": [""]
         },
-        {"tag": "search_hospital_by_params",
+        {"tag": "search_classroom_by_number",
          "patterns": [],
-         "responses": ["Please provide hospital type"],
-         "context": ["search_hospital_by_type"]
-        },
-        {"tag": "search_hospital_by_type",
-         "patterns": [],
-         "responses": ["Loading hospital details"],
+         "responses": ["I can't find the classroom"],
          "context": [""]
         }
    ]

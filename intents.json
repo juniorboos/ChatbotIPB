@@ -49,24 +49,24 @@
          "responses": ["Classroom 109 is on the first floor, in the end of the hallway"],
          "context": [""]
         },
-        {"tag": "classroom_120",
-         "patterns": ["120"],
-         "responses": ["Classroom 120 is on the second floor, on the right"],
+        {"tag": "classroom_LCA",
+         "patterns": ["LCA"],
+         "responses": ["The LCA classroom is downstairs, in the CEDRI sector."],
          "context_filter": ["search_classroom_by_number"]
         },
-        {"tag": "classroom_120_phrases",
-         "patterns": ["Where is the classroom 120?","I want to know the location of the classroom 120","Where do I find the classroom 120?","Classroom 120"],
-         "responses": ["Classroom 120 is on the second floor, on the right"],
+        {"tag": "classroom_LCA_phrases",
+         "patterns": ["Where is the classroom LCA?","I want to know the location of the classroom LCA","Where do I find the classroom LCA?","Classroom LCA"],
+         "responses": ["The LCA classroom is downstairs, in the CEDRI sector."],
          "context": [""]
         },
         {"tag": "auditorium",
          "patterns": ["Auditorium"],
-         "responses": ["The auditorium is right behind you!"],
+         "responses": ["The auditorium is downstairs, turning left."],
          "context_filter": ["search_classroom_by_number"]
         },
         {"tag": "auditorium_phrases",
          "patterns": ["Where is the auditorium?","I want to know the location of the auditorium","Where do I find the auditorium?","Auditorium"],
-         "responses": ["The auditorium is right behind you!"],
+         "responses": ["The auditorium is downstairs, turning left."],
          "context": [""]
         },
         {"tag": "search_classroom_by_number",
