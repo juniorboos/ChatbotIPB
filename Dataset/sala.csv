@@ -1,0 +1,106 @@
+"ID","COD_ESCOLA","COD_SALA","NOME","ABREV","IP"
+4694,3043,"Chav2","Chav2","Chav2",
+1541,3043,"AAM","Auditório Alcínio Miguel","AAM",167773187
+741,3043,"SAma","SAmarante","SAma",
+1542,3043,"CC","CC","CC",167773410
+1543,3043,"Testes","Testes","Testes",167773186
+6949,3043,"G3-S1/02","G3-S1/02","G3-S1/02",167772780
+6950,3043,"G5-S3/02","G5-S3/02","G5-S3/02",167772784
+6951,3043,"G5-S3/01","G5-S3/01","G5-S3/01",167772783
+6952,3043,"Sala Alt","Sala Alt","Sala Alt",167772812
+7164,3043,"Ch2.3","Chav_2.3","Ch2.3",
+6862,3043,"TMon","Moncorvo","TMon",
+12668,3043,"ST2","Sala Taipas 2","ST2",
+12669,3043,"Carrz","Carrazeda","Carrz",
+12687,3043,"LMCM","Lab. de Materiais de Construçao Mecanica","LMCM",167773231
+12759,3043,"G2-S02/02","G2-S02/02","G2-S02/02",
+7163,3043,"Ch2.4","Chav 2.4","Ch2.4",
+11697,3043,"Taip-S2","Taipas S2","Taip-S2",
+9201,3043,"C_2.4","Chaves_2.4","C_2.4",
+12667,3043,"ST1","Sala Taipas 1","ST1",
+12524,3043,"LIC","Lab. de Infraestruturas e Comunicações","LIC",167773224
+12525,3043,"LCA","Lab. de Computação Avançada","LCA",167773223
+12526,3043,"LCGAV","Lab. de Computação Gráfica e Ambientes Virtuais","LCGAV",167773222
+12527,3043,"S212","Sala 212","S212",167773396
+13446,3043,"LEI","Laboratório de Eletrónica e Instrumentação","LEI",167773219
+14406,3043,"Sala Cave","ESA-SalaCave","Sala Cave",
+14407,3043,"Aud.Cave","ESA-Aud. Cave","Aud.Cave",
+14408,3043,"Aud.DG","ESA-AudDG","Aud.DG",
+9101,3043,"C_2.7","Chaves_2.7","C_2.7",
+9102,3043,"C_2.3","Chaves_2.3","C_2.3",
+13906,3043,"R","Recepção","R",167773188
+2030,3043,"Chav","Chaves","Chav",
+2031,3043,"Pen","Penafiel","Pen",
+14166,3043,"Brigta","Brigantia","Brigta",
+710,3043,"ESAm","ESAm","ESAm",
+711,3043,"P301","ESPe(301)","P301",
+1005,3043,"1-3","Sala de Aula 1-3","1-3",167773809
+1006,3043,"SI","Sala de Informática","SI",167773804
+14247,3043,"G2-S0/02","G2-S0/02","G2-S0/02",
+14248,3043,"AudDG","ESA-AudDG","AudDG",
+14249,3043,"AudCave","ESA-Aud. Cave","AudCave",
+14250,3043,"SalaCave","ESA-SalaCave","SalaCave",
+12559,3043,"G6-S3/01","G6-S3/01","G6-S3/01",
+12560,3043,"212","Sala 212","212",167773396
+12561,3043,"Bg","Brigantia","Bg",
+15706,3043,"MAcademy","Mentoring Academy","MAcademy",
+14246,3043,"Audt","Auditório","Audt",167773188
+11157,3043,"ST","ST-Saúde","ST",
+214,3043,"**","**","**",
+217,3043,"-","-","-",0
+236,3043,"04","Sala de Aula 04","04",
+258,3043,"101","Sala 101","101",167773285
+259,3043,"102","Sala 102","102",167773286
+260,3043,"103","Sala 103","103",167773287
+261,3043,"105","Sala 105","105",167773289
+262,3043,"106","Sala 106","106",167773290
+263,3043,"109","Sala 109","109",167773293
+265,3043,"110","Sala 110","110",167773294
+266,3043,"112","Sala 112","112",167773296
+267,3043,"113","Sala 113","113",167773297
+268,3043,"114","Sala 114","114",167773298
+269,3043,"115","Sala 115","115",167773299
+270,3043,"117","Sala 117","117",167773301
+272,3043,"120","Sala 120","120",167773304
+273,3043,"122","Sala 122","122",167773306
+274,3043,"127","Sala 127","127",167773311
+275,3043,"129","Sala 129","129",167773313
+277,3043,"132","Sala 132","132",167773316
+278,3043,"134","Sala 134","134",167773318
+285,3043,"201","Sala 201","201",167773385
+286,3043,"203","Sala 203","203",167773387
+287,3043,"204","Sala 204","204",167773388
+288,3043,"207","Sala 207","207",167773391
+289,3043,"208","Sala 208","208",167773392
+290,3043,"210","Sala 210","210",167773394
+291,3043,"211","Sala 211","211",167773395
+292,3043,"213","Sala 213","213",167773397
+293,3043,"216","Sala 216","216",167773400
+294,3043,"218","Sala 218","218",167773402
+295,3043,"223","Sala 223","223",167773407
+302,3043,"AGRÁ","Lab. Biologia","AGRÁ",
+324,3043,"C3","Cave 3","C3",
+340,3043,"CCalc","Centro de Cálculo","CCalc",
+350,3043,"Estig 101","Estig 101","Estig 101",
+352,3043,"Estig 114","Estig 114","Estig 114",
+404,3043,"LC","Lab. de Comunicações","LC",167773222
+405,3043,"LCAR","Lab. de Controlo, Automação e Robótica","LCAR",167773226
+406,3043,"LE","Lab. de Electrotecnia","LE",167773220
+407,3043,"LERM","Lab. de Estruturas e Resistência de Materiais","LERM",167773237
+408,3043,"LI","Lab. de Informática","LI",167773223
+410,3043,"LMFH","Lab. de Mecânica dos Fluídos e Hidraúlica","LMFH",167773236
+411,3043,"LPAC","Lab. de Projecto Assistido por Computador","LPAC",167773228
+412,3043,"LPC","Lab. de Projecto de Contabilidade","LPC",167773387
+413,3043,"LPQ","Lab. de Processos Químicos","LPQ",167773233
+414,3043,"LPQ(Estig)","Lab. Processos Químicos (Estig)","LPQ(Estig)",
+415,3043,"LPS","Lab. de Processamento de Sinal","LPS",167773227
+416,3043,"LQA","Lab. de Química Analítica","LQA",167773232
+418,3043,"LSE","Lab. de Sistemas Electromecatrónicos","LSE",167773225
+420,3043,"LSIG","Lab. de Sistemas Informação Geográfica","LSIG",167773238
+421,3043,"LSIM","Lab. de Sistemas de Informação e Multimédia","LSIM",167773396
+422,3043,"LTB","Lab. de Tecnologia Biomédica","LTB",167773224
+423,3043,"LTM","Lab. de Tecnologia Mecânica","LTM",167773229
+424,3043,"LTT","Lab. de Tecnologia Térmica","LTT",167773231
+465,3043,"Mgd","Mogadouro","Mgd",
+467,3043,"Mog","Mogadouro","Mog",
+490,3043,"Saúde","Saúde","Saúde",
