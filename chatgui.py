@@ -4,6 +4,7 @@ lemmatizer = WordNetLemmatizer()
 import pickle
 import numpy as np
 import sqlite3
+from datetime import datetime
 
 conn = sqlite3.connect('tutorial.db')
 c = conn.cursor()
@@ -108,12 +109,15 @@ def chatbot_response(msg):
         data = c.fetchone()
         c.execute('SELECT ID_SALA, INICIO, FIM FROM aula WHERE ID = ?', (data[0],))
         dataAula = c.fetchone()
+        
+        dataInicio = datetime.strptime(dataAula[1], '%Y-%m-%d %H:%M:%S')
+        dataFim = datetime.strptime(dataAula[2], '%Y-%m-%d %H:%M:%S')
         c.execute('SELECT NOME FROM sala WHERE id = ?', (dataAula[0],))
         dataSala = c.fetchone()
         # c.close
         # conn.close()
         global_context = []
-        res = 'Your class starts at ' + dataAula[1] + ' in the classroom ' + dataSala[0]
+        res = 'Your class starts ' + dataInicio.strftime('%A') + ' at ' + dataInicio.strftime('%H:%M') + ' in the classroom ' + dataSala[0]
     else:
         ints = predict_class(msg, model)
         res = getResponse(msg, ints, intents)
