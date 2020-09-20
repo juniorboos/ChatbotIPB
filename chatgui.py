@@ -102,13 +102,13 @@ def chatbot_response(msg):
     print('GLOBAL: ', global_context)
     if (global_context == ['search_class_by_student']):
         print("Entrouuuuuu")
-        c.execute('SELECT login FROM docente WHERE nome = ?', (msg,))
+        c.execute('SELECT LOGIN FROM docente WHERE NOME = ?', (msg,))
         data = c.fetchone()
-        c.execute('SELECT id_aula FROM aula_docente WHERE login = ?', (data[0],))
+        c.execute('SELECT ID_AULA FROM aula_docente WHERE LOGIN = ?', (data[0],))
         data = c.fetchone()
-        c.execute('SELECT id_sala, inicio, fim FROM aula WHERE id = ?', (data[0],))
+        c.execute('SELECT ID_SALA, INICIO, FIM FROM aula WHERE ID = ?', (data[0],))
         dataAula = c.fetchone()
-        c.execute('SELECT nome FROM sala WHERE id = ?', (dataAula[0],))
+        c.execute('SELECT NOME FROM sala WHERE id = ?', (dataAula[0],))
         dataSala = c.fetchone()
         # c.close
         # conn.close()
