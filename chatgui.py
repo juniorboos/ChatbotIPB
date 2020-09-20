@@ -105,7 +105,7 @@ def chatbot_response(msg):
         print("Entrouuuuuu")
         c.execute('SELECT LOGIN FROM docente WHERE NOME = ?', (msg,))
         data = c.fetchone()
-        c.execute('SELECT ID_AULA FROM aula_docente WHERE LOGIN = ?', (data[0],))
+        c.execute('SELECT ID_AULA FROM aula_docente WHERE LOGIN = ? ORDER BY INICIO ASC', (data[0],))
         data = c.fetchone()
         c.execute('SELECT ID_SALA, INICIO, FIM FROM aula WHERE ID = ?', (data[0],))
         dataAula = c.fetchone()
