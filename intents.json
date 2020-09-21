@@ -21,7 +21,7 @@
         },
         {"tag": "options",
          "patterns": ["How you could help me?", "What you can do?", "What help you provide?", "How you can be helpful?", "What support is offered"],
-         "responses": ["I can guide you through location of rooms and auditoriums, class schedule, etc", "Offering support for location of rooms and auditoriums, class schedule, etc"],
+         "responses": ["I can guide you through location of rooms and auditoriums, class schedule, etc", "I'm offering support for location of rooms and auditoriums, class schedule, etc"],
          "context": [""]
         },
         {"tag": "class_search",
