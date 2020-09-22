@@ -25,7 +25,7 @@
          "context": [""]
         },
         {"tag": "class_search",
-         "patterns": ["I want to know what class I have today", "What class do I have today?", "I want to know information about my today's class", "Show me my today's class"],
+         "patterns": ["I want to know what is my next class", "What class do I have next?", "I want to know information about my next class", "Show me my next class"],
          "responses": ["Please provide your name"],
          "context": ["search_class_by_student"]
         },
