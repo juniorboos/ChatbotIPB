@@ -98,7 +98,7 @@ def getResponse(message, ints, intents_json, userID='123', show_details=True):
     return result
 
 
-def search_class_by_student():
+def search_class_today():
     print("Entrouuuuuu")
     c.execute('SELECT LOGIN FROM docente WHERE NOME = ?', (msg,))
     data = c.fetchone()
@@ -120,7 +120,7 @@ def chatbot_response(msg):
     print('---------')
     global global_context
     print('GLOBAL: ', global_context)
-    if (global_context == ['search_class_by_student']):
+    if (global_context == ['search_class_today']):
         res = search_class_by_student()
     else:
         ints = predict_class(msg, model)
