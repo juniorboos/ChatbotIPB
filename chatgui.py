@@ -98,13 +98,16 @@ def getResponse(message, ints, intents_json, userID='123', show_details=True):
     return result
 
 
-def search_class_by_student():
+def search_class_by_student(msg):
     print("Entrouuuuuu")
     c.execute('SELECT LOGIN FROM docente WHERE NOME = ?', (msg,))
     data = c.fetchone()
-    c.execute('SELECT ID_AULA FROM aula_docente WHERE LOGIN = ? ORDER BY INICIO ASC', (data[0],))
-    data = c.fetchone()
-    c.execute('SELECT ID_SALA, INICIO, FIM FROM aula WHERE ID = ?', (data[0],))
+    # c.execute('SELECT ID_AULA FROM aula_docente WHERE LOGIN = ? ORDER BY INICIO ASC', (data[0],))
+    c.execute('SELECT ID_AULA FROM aula_docente WHERE LOGIN = ?', (data[0],))
+    data = c.fetchall()
+    # newData = [id_aula.replace('(', '').replace(',', '').replace(')','') for id_aula in data ]
+    print(data)
+    c.execute('SELECT ID_SALA, INICIO, FIM FROM aula WHERE ID IN ? ORDER BY INICIO ASC', (data,))
     dataAula = c.fetchone()
     
     dataInicio = datetime.strptime(dataAula[1], '%Y-%m-%d %H:%M:%S')
@@ -121,7 +124,7 @@ def chatbot_response(msg):
     global global_context
     print('GLOBAL: ', global_context)
     if (global_context == ['search_class_by_student']):
-        res = search_class_by_student()
+        res = search_class_by_student(msg)
     else:
         ints = predict_class(msg, model)
         res = getResponse(msg, ints, intents)
