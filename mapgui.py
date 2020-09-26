@@ -8,11 +8,21 @@ Image.MAX_IMAGE_PIXELS = 1024000000
 # root.geometry("960x720")
 # root.resizable(width=FALSE, height= FALSE)
 
-my_img = Image.open("PISO-1-Model2.png")
-resized = ImageTk.PhotoImage(my_img.resize((1000,1000)))
+floor = Image.open("Blueprint/PISO -1.png")
+# floorResized = ImageTk.PhotoImage(floor.resize((1000,1000)))
+floorResized = floor.resize((1000,1000))
 
-my_label = Label(image=resized)
-my_label.pack()
+locationIcon = Image.open("Blueprint/location_icon.png")
+
+floorResized.paste(locationIcon, (500, 400), locationIcon)
+floorResized.paste(locationIcon, (300, 400), locationIcon)
+
+tkimage = ImageTk.PhotoImage(floorResized)
+
+panel1 = Label(root, image=tkimage)
+panel1.grid(row=0, column=2, sticky=E)
+# my_label = Label(image=floorResized)
+# my_label.pack()
 
 
 root.mainloop()
