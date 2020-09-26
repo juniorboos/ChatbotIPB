@@ -5,7 +5,7 @@ import pickle
 import numpy as np
 import sqlite3
 from datetime import datetime
-
+import numpy as np
 conn = sqlite3.connect('tutorial.db')
 c = conn.cursor()
 
@@ -105,9 +105,11 @@ def search_class_by_student(msg):
     # c.execute('SELECT ID_AULA FROM aula_docente WHERE LOGIN = ? ORDER BY INICIO ASC', (data[0],))
     c.execute('SELECT ID_AULA FROM aula_docente WHERE LOGIN = ?', (data[0],))
     data = c.fetchall()
+    newData = tuple(np.array([np.array(x[0]) for x in data]))
     # newData = [id_aula.replace('(', '').replace(',', '').replace(')','') for id_aula in data ]
     print(data)
-    c.execute('SELECT ID_SALA, INICIO, FIM FROM aula WHERE ID IN ? ORDER BY INICIO ASC', (data,))
+    print(newData)
+    c.execute('SELECT ID_SALA, INICIO, FIM FROM aula WHERE ID IN ? ORDER BY INICIO ASC', (newData))
     dataAula = c.fetchone()
     
     dataInicio = datetime.strptime(dataAula[1], '%Y-%m-%d %H:%M:%S')
