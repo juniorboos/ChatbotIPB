@@ -14,8 +14,8 @@ floorResized = floor.resize((1000,1000))
 
 locationIcon = Image.open("Blueprint/location_icon.png")
 
-floorResized.paste(locationIcon, (500, 400), locationIcon)
-floorResized.paste(locationIcon, (300, 400), locationIcon)
+# floorResized.paste(locationIcon, (500, 400), locationIcon)
+floorResized.paste(locationIcon, (710, 360), locationIcon)
 
 tkimage = ImageTk.PhotoImage(floorResized)
 
