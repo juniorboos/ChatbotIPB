@@ -1,6 +1,8 @@
 import tkinter
 from tkinter import *
 from PIL import ImageTk, Image
+import json
+      
 
 root = Tk()
 root.title("Map")
@@ -14,19 +16,26 @@ canvas.configure(scrollregion=(-500, -500, 500, 500))
 floor = Image.open("Blueprint/PISO -1.png")
 # floorResized = ImageTk.PhotoImage(floor.resize((1000,1000)))
 floorResized = floor.resize((1000,1000))
+floorResized.save('resizedfloor.png')
 
 locationIcon = Image.open("Blueprint/location_icon.png")
 
 # floorResized.paste(locationIcon, (500, 400), locationIcon)
-# floorResized.paste(locationIcon, (710, 360), locationIcon)
-# floorResized.paste(locationIcon, (0, 0), locationIcon)
+floorResized.paste(locationIcon, (761, 113), locationIcon)
+# floorResized.paste(locationIcon, (724, 374), locationIcon)
+
+with open('rooms.json', encoding="utf8") as json_file:
+   data = json.load(json_file)
+   for floor in data["floor"]:
+      for room in data["floor"][floor]:
+         for coord in data["floor"][floor][room]:
+            floorResized.paste(locationIcon, (coord[0], coord[1]), locationIcon)
 
 tkimage = ImageTk.PhotoImage(floorResized)
 pinIcon = ImageTk.PhotoImage(locationIcon)
 
 
 canvas.create_image(0, 0, anchor='center', image=tkimage)
-canvas.create_image(222, -140, anchor='center', image=pinIcon)
 # canvas.create_oval(-500, -500, 500, 500, fill="red")
 
 
