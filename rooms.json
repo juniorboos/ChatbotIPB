@@ -1,7 +1,56 @@
 {
    "floor": {
       "-1": {
-         "Galeria de acesso": []
+         "Galeria de acesso": [[710, 360]],
+         "Foyer": [[724, 310]],
+         "Auditório": [[840, 260]],
+         "Casa de máquinas": [[924, 301]],
+         "Monta-cargas": [[924, 314]],
+         "Átrio exterior": [
+            [904, 314],
+            [796, 8]
+         ],
+         "Vestiário": [[882, 287]],
+         "Coordenação": [[803, 308]],
+         "Elevador": [[770, 300]],
+         "Arquivo": [[711, 264]],
+         "Arrecadação": [[742, 241]],
+         "Cabine controle": [[773, 231]],
+         "Cabine tradução": [[773, 208]],
+         "Instâncias sanitárias": [
+            [724, 97],
+            [720, 225],
+            [469, 427],
+            [224, 430]
+         ],
+         "Central de climatização": [[712, 153]],
+         "Gabinete de investigação": [
+            [769, 460],
+            [761, 113]
+         ],
+         "Videoteca": [
+            [785, 400],
+            [858, 114]
+         ],
+         "Sala de leitura": [[785, 400]],
+         "Escaparates": [
+            [823, 433],
+            [844, 12]
+         ],
+         "Recepção / Expedição": [
+            [831, 451],
+            [775, 9]
+         ],
+         "Tratamento / Catalogação": [[735, 9]],
+         "Restauro / Reprografia": [
+            [890, 400],
+            [685, 13]
+         ],
+         "Depósito / Microfilmagem": [[651, 18]],
+         "Depósito": [
+            [661, 92],
+            [894, 448]
+         ]
       }
    }
 }
