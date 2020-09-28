@@ -6,7 +6,7 @@ import numpy as np
 import sqlite3
 from datetime import datetime
 import numpy as np
-# import mapgui
+import mapgui
 conn = sqlite3.connect('tutorial.db')
 c = conn.cursor()
 
@@ -104,7 +104,6 @@ def search_class_by_student(msg):
     c.execute('SELECT LOGIN FROM docente WHERE NOME = ?', (msg,))
     data = c.fetchone()
     print(data[0])
-    # c.execute('SELECT ID_AULA FROM aula_docente WHERE LOGIN = ? ORDER BY INICIO ASC', (data[0],))
     c.execute('SELECT ID_AULA FROM aula_docente WHERE LOGIN = ?', (data[0],))
     # data = c.fetchall()
     data = c.fetchone()
@@ -121,7 +120,6 @@ def search_class_by_student(msg):
     dataSala = c.fetchone()
     # c.close
     # conn.close()
-    global_context = []
     res = 'Your class starts ' + dataInicio.strftime('%A') + ' at ' + dataInicio.strftime('%H:%M') + ' in the classroom ' + dataSala[0]
     return res
 
@@ -131,6 +129,11 @@ def chatbot_response(msg):
     print('GLOBAL: ', global_context)
     if (global_context == ['search_class_by_student']):
         res = search_class_by_student(msg)
+        global_context = []
+    if (global_context == ['search_classroom_by_number']):
+        res = 'The classroom is right there honey!'
+        mapgui.main(msg)
+        global_context = []
     else:
         ints = predict_class(msg, model)
         res = getResponse(msg, ints, intents)

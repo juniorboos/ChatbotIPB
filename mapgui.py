@@ -2,72 +2,73 @@ import tkinter
 from tkinter import *
 from PIL import ImageTk, Image
 import json
-      
 
-root = Tk()
-root.title("Map")
-frame = Frame(root)
-frame.grid(column=0,row=0, sticky=(N,W,E,S) )
-frame.columnconfigure(0, weight = 1)
-frame.rowconfigure(0, weight = 1)
-frame.pack()
 
-choices = ['']
+def main(msg):
 
-with open('rooms.json', encoding="utf8") as json_file:
-   data = json.load(json_file)
-   for floor in data["floor"]:
-      for room in data["floor"][floor]:
-         choices.append(room)
+   def change_dropdown(*args):
+      canvas.delete("roomPin")
+      selectedRoom = tkvar.get()
+      for floor in data["floor"]:
+         for room in data["floor"][floor]:
+            if (room == selectedRoom):
+               for coord in data["floor"][floor][room]:
+                  canvas.create_image(coord[0], coord[1], anchor=NW, image=pinIcon, tags="roomPin")
+               break
 
-tkvar = StringVar(root)
-tkvar.set('') # Default
+   def searchRoom():
+      canvas.delete("roomPin")
+      # selectedRoom = tkvar.get()
+      for floor in data["floor"]:
+         for room in data["floor"][floor]:
+            if (room == msg):
+               for coord in data["floor"][floor][room]:
+                  canvas.create_image(coord[0], coord[1], anchor=NW, image=pinIcon, tags="roomPin")
+               break
 
-popupMenu = OptionMenu(frame, tkvar, *choices)
-popupMenu.pack()
+   root = Tk()
+   root.title("Map")
+   frame = Frame(root)
+   frame.grid(column=0,row=0, sticky=(N,W,E,S) )
+   frame.columnconfigure(0, weight = 1)
+   frame.rowconfigure(0, weight = 1)
+   frame.pack()
 
-Image.MAX_IMAGE_PIXELS = 1024000000
-# root.geometry("1000x1000")
-# root.resizable(width=FALSE, height= FALSE)
+   choices = ['']
 
-# Create canvas with size 1000x1000
-canvas = Canvas(frame, width=1000, height=1000)
-canvas.pack()
-# canvas.configure(scrollregion=(-500, -500, 500, 500))
+   with open('rooms.json', encoding="utf8") as json_file:
+      data = json.load(json_file)
+      for floor in data["floor"]:
+         for room in data["floor"][floor]:
+            choices.append(room)
 
-# Open image and resize to 1000x1000
-floor = Image.open("Blueprint/PISO -1.png")
-floorResized = floor.resize((1000,1000))
+   tkvar = StringVar(root)
+   tkvar.set('') # Default
 
-# Set pin icon
-locationIcon = Image.open("Blueprint/location_icon.png")
+   popupMenu = OptionMenu(frame, tkvar, *choices)
+   popupMenu.pack()
 
-tkimage = ImageTk.PhotoImage(floorResized)
-pinIcon = ImageTk.PhotoImage(locationIcon)
+   Image.MAX_IMAGE_PIXELS = 1024000000
+   # root.geometry("1000x1000")
+   # root.resizable(width=FALSE, height= FALSE)
 
-canvas.create_image(0, 0, anchor=NW, image=tkimage)
+   # Create canvas with size 1000x1000
+   canvas = Canvas(frame, width=1000, height=1000)
+   canvas.pack()
+   # canvas.configure(scrollregion=(-500, -500, 500, 500))
 
-def change_dropdown(*args):
-   canvas.delete("roomPin")
-   selectedRoom = tkvar.get()
-   for floor in data["floor"]:
-      for room in data["floor"][floor]:
-         if (room == selectedRoom):
-            for coord in data["floor"][floor][room]:
-               canvas.create_image(coord[0], coord[1], anchor=NW, image=pinIcon, tags="roomPin")
-            break
+   # Open image and resize to 1000x1000
+   floor = Image.open("Blueprint/PISO -1.png")
+   floorResized = floor.resize((1000,1000))
 
-def searchRoom(roomWanted):
-   canvas.delete("roomPin")
-   # selectedRoom = tkvar.get()
-   for floor in data["floor"]:
-      for room in data["floor"][floor]:
-         if (room == roomWanted):
-            for coord in data["floor"][floor][room]:
-               canvas.create_image(coord[0], coord[1], anchor=NW, image=pinIcon, tags="roomPin")
-            break
+   # Set pin icon
+   locationIcon = Image.open("Blueprint/location_icon.png")
 
-tkvar.trace('w', change_dropdown)
+   tkimage = ImageTk.PhotoImage(master=root, image=floorResized)
+   pinIcon = ImageTk.PhotoImage(master=root, image=locationIcon)
 
-root.mainloop()
+   canvas.create_image(0, 0, anchor=NW, image=tkimage)
 
+   tkvar.trace('w', change_dropdown)
+   searchRoom()
+   root.mainloop()

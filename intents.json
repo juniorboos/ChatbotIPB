@@ -29,14 +29,9 @@
          "responses": ["Please provide your name"],
          "context": ["search_class_by_student"]
         },
-        {"tag": "class_search",
-         "patterns": [],
-         "responses": [],
-         "context_filter": ["search_class_by_student"]
-        },
         {"tag": "classroom_search",
          "patterns": ["I want to search for a classroom", "Classroom location", "I want to know where a classroom is", "Show me the location of a classroom"],
-         "responses": ["Please provide the classroom number"],
+         "responses": ["Please provide the room's name"],
          "context": ["search_classroom_by_number"]
         },
         {"tag": "classroom_109",
