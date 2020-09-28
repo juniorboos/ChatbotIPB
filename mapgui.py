@@ -21,7 +21,7 @@ def main(msg):
       # selectedRoom = tkvar.get()
       for floor in data["floor"]:
          for room in data["floor"][floor]:
-            if (room == msg):
+            if (room.lower() == msg.lower()):
                for coord in data["floor"][floor][room]:
                   canvas.create_image(coord[0], coord[1], anchor=NW, image=pinIcon, tags="roomPin")
                break
