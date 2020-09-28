@@ -50,13 +50,13 @@ pinIcon = ImageTk.PhotoImage(locationIcon)
 canvas.create_image(0, 0, anchor=NW, image=tkimage)
 
 def change_dropdown(*args):
-   print( tkvar.get() )
+   canvas.delete("roomPin")
    selectedRoom = tkvar.get()
    for floor in data["floor"]:
       for room in data["floor"][floor]:
          if (room == selectedRoom):
             for coord in data["floor"][floor][room]:
-               canvas.create_image(coord[0], coord[1], anchor=NW, image=pinIcon)
+               canvas.create_image(coord[0], coord[1], anchor=NW, image=pinIcon, tags="roomPin")
             break
 
 tkvar.trace('w', change_dropdown)
