@@ -50,7 +50,29 @@
          "Depósito": [
             [661, 92],
             [894, 448]
-         ]
+         ],
+         "Reprografia": [[645, 451]],
+         "Salas Núcleos Estudantes": [
+            [538, 451],
+            [584, 451]
+         ],
+         "Incubadoras de empresas": [[357, 451]],
+         "Sala de apoio ao laboratório": [
+            [162, 431],
+            [733, 574],
+            [849, 551],
+            [849, 582],
+            [677, 671],
+            [747, 671],
+            [433, 625],
+            [501, 625],
+            [434, 781],
+            [501, 781],
+            [188, 677],
+            [258, 677]
+         ],
+         "Laboratório Eletrônica e Instrumentação": [[663, 606]],
+         "Laboratório Computação Gráfica e Ambientes Virtuais": [[762, 567]]
       }
    }
 }
