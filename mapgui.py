@@ -20,26 +20,21 @@ floorResized.save('resizedfloor.png')
 
 locationIcon = Image.open("Blueprint/location_icon.png")
 
-# floorResized.paste(locationIcon, (500, 400), locationIcon)
-floorResized.paste(locationIcon, (761, 113), locationIcon)
-# floorResized.paste(locationIcon, (724, 374), locationIcon)
+choices = []
 
 with open('rooms.json', encoding="utf8") as json_file:
    data = json.load(json_file)
    for floor in data["floor"]:
       for room in data["floor"][floor]:
+         choices.append(room)
          for coord in data["floor"][floor][room]:
             floorResized.paste(locationIcon, (coord[0], coord[1]), locationIcon)
 
+print(choices)
 tkimage = ImageTk.PhotoImage(floorResized)
 pinIcon = ImageTk.PhotoImage(locationIcon)
 
-
 canvas.create_image(0, 0, anchor='center', image=tkimage)
-# canvas.create_oval(-500, -500, 500, 500, fill="red")
-
-
-# pin = Label(root, image=pinIcon).place(x=0,y=0)
 
 
 root.mainloop()
