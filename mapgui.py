@@ -12,7 +12,7 @@ frame.columnconfigure(0, weight = 1)
 frame.rowconfigure(0, weight = 1)
 frame.pack()
 
-choices = []
+choices = ['']
 
 with open('rooms.json', encoding="utf8") as json_file:
    data = json.load(json_file)
@@ -21,12 +21,10 @@ with open('rooms.json', encoding="utf8") as json_file:
          choices.append(room)
 
 tkvar = StringVar(root)
-tkvar.set('Galeria de acesso') # Default
+tkvar.set('') # Default
 
 popupMenu = OptionMenu(frame, tkvar, *choices)
 popupMenu.pack()
-
-
 
 Image.MAX_IMAGE_PIXELS = 1024000000
 # root.geometry("1000x1000")
@@ -55,6 +53,16 @@ def change_dropdown(*args):
    for floor in data["floor"]:
       for room in data["floor"][floor]:
          if (room == selectedRoom):
+            for coord in data["floor"][floor][room]:
+               canvas.create_image(coord[0], coord[1], anchor=NW, image=pinIcon, tags="roomPin")
+            break
+
+def searchRoom(roomWanted):
+   canvas.delete("roomPin")
+   # selectedRoom = tkvar.get()
+   for floor in data["floor"]:
+      for room in data["floor"][floor]:
+         if (room == roomWanted):
             for coord in data["floor"][floor][room]:
                canvas.create_image(coord[0], coord[1], anchor=NW, image=pinIcon, tags="roomPin")
             break

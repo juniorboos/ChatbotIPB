@@ -6,6 +6,7 @@ import numpy as np
 import sqlite3
 from datetime import datetime
 import numpy as np
+# import mapgui
 conn = sqlite3.connect('tutorial.db')
 c = conn.cursor()
 
@@ -102,15 +103,17 @@ def search_class_by_student(msg):
     print("Entrouuuuuu")
     c.execute('SELECT LOGIN FROM docente WHERE NOME = ?', (msg,))
     data = c.fetchone()
+    print(data[0])
     # c.execute('SELECT ID_AULA FROM aula_docente WHERE LOGIN = ? ORDER BY INICIO ASC', (data[0],))
     c.execute('SELECT ID_AULA FROM aula_docente WHERE LOGIN = ?', (data[0],))
-    data = c.fetchall()
-    newData = tuple(np.array([np.array(x[0]) for x in data]))
-    # newData = [id_aula.replace('(', '').replace(',', '').replace(')','') for id_aula in data ]
-    print(data)
-    print(newData)
-    c.execute('SELECT ID_SALA, INICIO, FIM FROM aula WHERE ID IN ? ORDER BY INICIO ASC', (newData))
+    # data = c.fetchall()
+    data = c.fetchone()
+    # newData = tuple(np.array([np.array(x[0]) for x in data]))
+    print(data[0])
+    # print(newData[0])
+    c.execute('SELECT ID_SALA, INICIO, FIM FROM aula WHERE ID = ?', (data[0],))
     dataAula = c.fetchone()
+    print(dataAula)
     
     dataInicio = datetime.strptime(dataAula[1], '%Y-%m-%d %H:%M:%S')
     dataFim = datetime.strptime(dataAula[2], '%Y-%m-%d %H:%M:%S')
@@ -120,6 +123,7 @@ def search_class_by_student(msg):
     # conn.close()
     global_context = []
     res = 'Your class starts ' + dataInicio.strftime('%A') + ' at ' + dataInicio.strftime('%H:%M') + ' in the classroom ' + dataSala[0]
+    return res
 
 def chatbot_response(msg):
     print('---------')
