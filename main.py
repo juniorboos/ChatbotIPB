@@ -13,6 +13,10 @@ import PIL.Image
 import json
 import random
 
+import speech_recognition as sr
+
+r = sr.Recognizer()
+
 lemmatizer = WordNetLemmatizer()
 conn = sqlite3.connect('tutorial.db')
 c = conn.cursor()
@@ -137,7 +141,7 @@ def chatbot_response(msg):
       res = search_class_by_student(msg)
       global_context = []
    if (global_context == ['search_classroom_by_number']):
-      res = 'The classroom is right there honey!'
+      res = 'The classroom is right there!'
       global_context = []
       searchRoom(msg)
    else:
@@ -153,8 +157,16 @@ from tkinter import *
 
 
 def send():
-   msg = EntryBox.get("1.0",'end-1c').strip()
-   EntryBox.delete("0.0",END)
+   # msg = EntryBox.get("1.0",'end-1c').strip()
+   # EntryBox.delete("0.0",END)
+
+   with sr.Microphone() as source:
+      # read the audio data from the default microphone
+      audio_data = r.record(source, duration=4)
+      print("Recognizing...")
+      # convert speech to text
+      msg = r.recognize_google(audio_data)
+      print(msg)
 
    if msg != '':
       ChatLog.config(state=NORMAL)
@@ -179,8 +191,8 @@ def searchRoom(msg):
 
 base = Tk()
 base.title("Hello")
-# base.geometry("1400x1000")
-# base.resizable(width=FALSE, height=FALSE)
+base.geometry("1400x1000")
+base.resizable(width=FALSE, height=FALSE)
 
 #Create Chat window
 ChatLog = Text(base, bd=0, bg="white", height="8", width="50", font="Arial",)
@@ -220,6 +232,6 @@ locationIcon = PIL.Image.open("Blueprint/location_icon.png")
 tkimage = ImageTk.PhotoImage(master=base, image=floorResized)
 pinIcon = ImageTk.PhotoImage(master=base, image=locationIcon)
 
-# canvas.create_image(0, 0, anchor=NW, image=tkimage)
+canvas.create_image(0, 0, anchor=NW, image=tkimage)
 
 base.mainloop()
