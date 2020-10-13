@@ -223,9 +223,9 @@ canvas.place(x=400, y=0, height=1000, width=1000)
 
 PIL.Image.MAX_IMAGE_PIXELS = 1024000000
 # Open image and resize to 1000x1000
-floor = PIL.Image.open("Blueprint/PISO -1.png")
+floor = PIL.Image.open("Blueprint/PISO 0.png")
 floorResized = floor.resize((1000,1000))
-
+floorResized.save('resized.png')
 # Set pin icon
 locationIcon = PIL.Image.open("Blueprint/location_icon.png")
 
