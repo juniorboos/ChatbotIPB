@@ -1,42 +1,42 @@
 {"intents": [
         {"tag": "greeting",
-         "patterns": ["Hi there", "How are you", "Is anyone there?","Hey","Hola", "Hello", "Good day"],
-         "responses": ["Hello, thanks for asking", "Good to see you again", "Hi there, how can I help?"],
+         "patterns": ["Olá", "Como está?", "Oi", "Tudo bem?", "Bom dia", "Boa tarde", "Boa noite"],
+         "responses": ["Olá, o que deseja ?", "Bom te ver novamente!", "Olá, como posso ajudar?"],
          "context": [""]
         },
         {"tag": "goodbye",
-         "patterns": ["Bye", "See you later", "Goodbye", "Nice chatting to you, bye", "Till next time"],
-         "responses": ["See you!", "Have a nice day", "Bye! Come back again soon."],
+         "patterns": ["Adeus", "Te vejo depois", "Tchau", "Bom conversar com você, tchau", "Até a próxima!"],
+         "responses": ["Até a próxima!", "Tenha um bom dia!", "Até mais!"],
          "context": [""]
         },
         {"tag": "thanks",
-         "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me"],
+         "patterns": ["Obrigado", "Agradeço", "Isto ajudou", "Maravilha, obrigado", "Obrigado pela ajuda"],
          "responses": ["Happy to help!", "Any time!", "My pleasure"],
          "context": [""]
         },
         {"tag": "noanswer",
          "patterns": [],
-         "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"],
+         "responses": ["Desculpa, não consegui entender", "Por favor, dê mais informações", "Não compreendi"],
          "context": [""]
         },
         {"tag": "options",
-         "patterns": ["How you could help me?", "What you can do?", "What help you provide?", "How you can be helpful?", "What support is offered"],
-         "responses": ["I can guide you through location of rooms and auditoriums, class schedule, etc", "I'm offering support for location of rooms and auditoriums, class schedule, etc"],
+         "patterns": ["Como você pode me ajudar?", "O que você pode fazer?", "Que tipo de ajuda você oferece?", "Como você pode ajudar?", "Qual suporte é oferecido?"],
+         "responses": ["Eu posso ajudar com a localização de salas e auditórios, cronograma de aulas, etc."],
          "context": [""]
         },
         {"tag": "class_search",
-         "patterns": ["I want to know what is my next class", "What class do I have next?", "I want to know information about my next class", "Show me my next class"],
-         "responses": ["Please provide your name"],
+         "patterns": ["Eu desejo saber quando é minha próxima aula", "Qual é minha próxima aula?", "Eu preciso de informações sobre minha próxima aula", "Mostre-me minha próxima aula"],
+         "responses": ["Por favor, informe seu nome"],
          "context": ["search_class_by_student"]
         },
         {"tag": "classroom_search",
-         "patterns": ["I want to search for a classroom", "Classroom location", "I want to know where a classroom is", "Show me the location of a classroom"],
-         "responses": ["Please provide the room's name"],
+         "patterns": ["Eu quero encontrar uma sala", "Localização de sala", "Eu quero saber onde uma sala fica", "Mostre-me a localização de uma sala"],
+         "responses": ["Por favor, informe o nome da sala"],
          "context": ["search_classroom_by_number"]
         },
         {"tag": "search_classroom_by_number",
          "patterns": [],
-         "responses": ["I can't find the classroom"],
+         "responses": ["Não consigo encontrar a sala"],
          "context": [""]
         }
    ]

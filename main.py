@@ -141,7 +141,7 @@ def chatbot_response(msg):
       res = search_class_by_student(msg)
       global_context = []
    if (global_context == ['search_classroom_by_number']):
-      res = 'The classroom is right there!'
+      res = 'A sala fica logo ali!'
       global_context = []
       searchRoom(msg)
    else:
@@ -165,7 +165,7 @@ def send():
       audio_data = r.record(source, duration=4)
       print("Recognizing...")
       # convert speech to text
-      msg = r.recognize_google(audio_data)
+      msg = r.recognize_google(audio_data, language="pt-BR")
       print(msg)
 
    if msg != '':
@@ -223,9 +223,9 @@ canvas.place(x=400, y=0, height=1000, width=1000)
 
 PIL.Image.MAX_IMAGE_PIXELS = 1024000000
 # Open image and resize to 1000x1000
-floor = PIL.Image.open("Blueprint/PISO 0.png")
+floor = PIL.Image.open("Blueprint/PISO -1.png")
 floorResized = floor.resize((1000,1000))
-floorResized.save('resized.png')
+# floorResized.save('resized.png')
 # Set pin icon
 locationIcon = PIL.Image.open("Blueprint/location_icon.png")
 

@@ -1,0 +1,43 @@
+{"intents": [
+        {"tag": "greeting",
+         "patterns": ["Hi there", "How are you", "Is anyone there?","Hey","Hola", "Hello", "Good day"],
+         "responses": ["Hello, thanks for asking", "Good to see you again", "Hi there, how can I help?"],
+         "context": [""]
+        },
+        {"tag": "goodbye",
+         "patterns": ["Bye", "See you later", "Goodbye", "Nice chatting to you, bye", "Till next time"],
+         "responses": ["See you!", "Have a nice day", "Bye! Come back again soon."],
+         "context": [""]
+        },
+        {"tag": "thanks",
+         "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me"],
+         "responses": ["Happy to help!", "Any time!", "My pleasure"],
+         "context": [""]
+        },
+        {"tag": "noanswer",
+         "patterns": [],
+         "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"],
+         "context": [""]
+        },
+        {"tag": "options",
+         "patterns": ["How you could help me?", "What you can do?", "What help you provide?", "How you can be helpful?", "What support is offered"],
+         "responses": ["I can guide you through location of rooms and auditoriums, class schedule, etc", "I'm offering support for location of rooms and auditoriums, class schedule, etc"],
+         "context": [""]
+        },
+        {"tag": "class_search",
+         "patterns": ["I want to know what is my next class", "What class do I have next?", "I want to know information about my next class", "Show me my next class"],
+         "responses": ["Please provide your name"],
+         "context": ["search_class_by_student"]
+        },
+        {"tag": "classroom_search",
+         "patterns": ["I want to search for a classroom", "Classroom location", "I want to know where a classroom is", "Show me the location of a classroom"],
+         "responses": ["Please provide the room's name"],
+         "context": ["search_classroom_by_number"]
+        },
+        {"tag": "search_classroom_by_number",
+         "patterns": [],
+         "responses": ["I can't find the classroom"],
+         "context": [""]
+        }
+   ]
+}
