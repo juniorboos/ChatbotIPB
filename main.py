@@ -73,6 +73,7 @@ def getResponse(message, ints, intents_json, userID='123', show_details=True):
    tag = ints[0]['intent']
    # print(tag)
    list_of_intents = intents_json['intents']
+   print(list_of_intents)
    for i in list_of_intents:
       if(i['tag']== tag):
          # print(i)
