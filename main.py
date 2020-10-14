@@ -180,12 +180,18 @@ def send():
       ChatLog.config(state=DISABLED)
       ChatLog.yview(END)
  
+
 def searchRoom(msg):
    canvas.delete("roomPin")
    # selectedRoom = tkvar.get()
    for floor in data["floor"]:
       for room in data["floor"][floor]:
          if (room.lower() == msg.lower()):
+            print("Blueprint/PISO "+floor+".png")
+            # floorImage = PIL.Image.open("Blueprint/PISO "+floor+".png")
+            # floorResized = floorImage.resize((1000,1000))
+            # tkimage = ImageTk.PhotoImage(master=base, image=floorResized)
+            canvas.create_image(0, 0, anchor=NW, image=tkimage[floor])
             for coord in data["floor"][floor][room]:
                canvas.create_image(coord[0], coord[1], anchor=NW, image=pinIcon, tags="roomPin")
             break
@@ -224,15 +230,21 @@ canvas.place(x=400, y=0, height=1000, width=1000)
 
 PIL.Image.MAX_IMAGE_PIXELS = 1024000000
 # Open image and resize to 1000x1000
-floor = PIL.Image.open("Blueprint/PISO 0.png")
-floorResized = floor.resize((1000,1000))
+# floor = "-1"
+tkimage={}
+floorImage = PIL.Image.open("Blueprint/PISO -1.png")
+floorResized = floorImage.resize((1000,1000))
+tkimage["-1"] = ImageTk.PhotoImage(master=base, image=floorResized)
+floorImage = PIL.Image.open("Blueprint/PISO 0.png")
+floorResized = floorImage.resize((1000,1000))
+tkimage["0"] = ImageTk.PhotoImage(master=base, image=floorResized)
 # floorResized.save('resized piso 0.png')
 # Set pin icon
 locationIcon = PIL.Image.open("Blueprint/location_icon.png")
 
-tkimage = ImageTk.PhotoImage(master=base, image=floorResized)
+# tkimage = ImageTk.PhotoImage(master=base, image=floorResized)
 pinIcon = ImageTk.PhotoImage(master=base, image=locationIcon)
 
-canvas.create_image(0, 0, anchor=NW, image=tkimage)
+# canvas.create_image(0, 0, anchor=NW, image=tkimage)
 
 base.mainloop()
