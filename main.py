@@ -21,7 +21,7 @@ lemmatizer = WordNetLemmatizer()
 conn = sqlite3.connect('tutorial.db')
 c = conn.cursor()
 model = load_model('chatbot_model.h5')
-intents = json.loads(open('intents.json').read())
+intents = json.loads(open('intents.json', encoding='utf-8').read())
 words = pickle.load(open('words.pkl','rb'))
 classes = pickle.load(open('classes.pkl','rb'))
 
