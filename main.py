@@ -142,9 +142,13 @@ def chatbot_response(msg):
       res = search_class_by_student(msg)
       global_context = []
    if (global_context == ['search_classroom_by_number']):
-      res = 'A sala fica logo ali!'
+      # res = 'A sala fica logo ali!'
       global_context = []
-      searchRoom(msg)
+      floor = searchRoom(msg)
+      if (floor != False):
+         res = 'O local fica no piso '+floor+'.'
+      else:
+         res = 'Não foi possível encontrar, tente novamente.'
    else:
       ints = predict_class(msg, model)
       res = getResponse(msg, ints, intents)
@@ -194,7 +198,9 @@ def searchRoom(msg):
             canvas.create_image(0, 0, anchor=NW, image=tkimage[floor])
             for coord in data["floor"][floor][room]:
                canvas.create_image(coord[0], coord[1], anchor=NW, image=pinIcon, tags="roomPin")
+            return floor
             break
+   return False
 
 base = Tk()
 base.title("Hello")
