@@ -11,7 +11,7 @@
         },
         {"tag": "thanks",
          "patterns": ["Obrigado", "Agradeço", "Isto ajudou", "Maravilha, obrigado", "Obrigado pela ajuda"],
-         "responses": ["Happy to help!", "Any time!", "My pleasure"],
+         "responses": ["Fico feliz por ajudar!", "Sem problemas!", "Prazer é todo meu!"],
          "context": [""]
         },
         {"tag": "noanswer",
@@ -31,7 +31,7 @@
         },
         {"tag": "classroom_search",
          "patterns": ["Eu quero encontrar uma sala", "Localização de sala", "Eu quero saber onde uma sala fica", "Mostre-me a localização de uma sala"],
-         "responses": ["Por favor, informe o nome da sala"],
+         "responses": ["Por favor, informe o nome do local"],
          "context": ["search_classroom_by_number"]
         },
         {"tag": "search_classroom_by_number",
