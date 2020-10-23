@@ -13,6 +13,10 @@ import json
 import random
 import locale
 import speech_recognition as sr
+
+import pyttsx3
+engine = pyttsx3.init()
+
 locale.setlocale(locale.LC_TIME, 'pt_PT')
 
 r = sr.Recognizer()
@@ -190,6 +194,9 @@ def send():
          
       ChatLog.config(state=DISABLED)
       ChatLog.yview(END)
+
+      engine.say(res)
+      engine.runAndWait()
  
 
 def searchRoom(msg):
