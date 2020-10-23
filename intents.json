@@ -5,7 +5,7 @@
          "context": [""]
         },
         {"tag": "goodbye",
-         "patterns": ["Adeus", "Te vejo depois", "Tchau", "Bom conversar com você, tchau", "Até a próxima!"],
+         "patterns": ["Adeus", "Te vejo depois", "Tchau", "Bom conversar com você, tchau", "Até a próxima", "Até mais"],
          "responses": ["Até a próxima!", "Tenha um bom dia!", "Até mais!"],
          "context": [""]
         },

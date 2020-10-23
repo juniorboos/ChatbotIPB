@@ -145,15 +145,15 @@ def chatbot_response(msg):
    if (global_context == ['search_class_by_student']):
       print('search_class_by_student')
       res = search_class_by_student(msg)
-      return res
       print('Res: '+res)
       global_context = []
+      return res
    if (global_context == ['search_classroom_by_number']):
       print('search_classroom_by_number')
       global_context = []
       floor = searchRoom(msg)
       if (floor != False):
-         res = 'O local fica no piso '+floor+'.'
+         res = msg+' fica no piso '+floor+'.'
       else:
          res = 'Não foi possível encontrar, tente novamente.'
       return res
