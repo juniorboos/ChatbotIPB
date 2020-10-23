@@ -5,15 +5,15 @@ import numpy as np
 import sqlite3
 from datetime import datetime
 import numpy as np
-import mapgui
 import json
 from keras.models import load_model
 from PIL import ImageTk
 import PIL.Image
 import json
 import random
-
+import locale
 import speech_recognition as sr
+locale.setlocale(locale.LC_TIME, 'pt_PT')
 
 r = sr.Recognizer()
 
@@ -73,7 +73,6 @@ def getResponse(message, ints, intents_json, userID='123', show_details=True):
    tag = ints[0]['intent']
    # print(tag)
    list_of_intents = intents_json['intents']
-   print(list_of_intents)
    for i in list_of_intents:
       if(i['tag']== tag):
          # print(i)
@@ -131,7 +130,8 @@ def search_class_by_student(msg):
    dataSala = c.fetchone()
    # c.close
    # conn.close()
-   res = 'Your class starts ' + dataInicio.strftime('%A') + ' at ' + dataInicio.strftime('%H:%M') + ' in the classroom ' + dataSala[0]
+   res = 'Sua aula começa ' + dataInicio.strftime('%A') + ' às ' + dataInicio.strftime('%H:%M') + ' no local ' + dataSala[0]
+   print(res)
    return res
 
 def chatbot_response(msg):
@@ -139,21 +139,25 @@ def chatbot_response(msg):
    global global_context
    print('GLOBAL: ', global_context)
    if (global_context == ['search_class_by_student']):
+      print('search_class_by_student')
       res = search_class_by_student(msg)
+      return res
+      print('Res: '+res)
       global_context = []
    if (global_context == ['search_classroom_by_number']):
-      # res = 'A sala fica logo ali!'
+      print('search_classroom_by_number')
       global_context = []
       floor = searchRoom(msg)
       if (floor != False):
          res = 'O local fica no piso '+floor+'.'
       else:
          res = 'Não foi possível encontrar, tente novamente.'
+      return res
    else:
+      print('else')
       ints = predict_class(msg, model)
       res = getResponse(msg, ints, intents)
-   print('Acabou a resposta..')
-   return res
+      return res
 
 
 #Creating GUI with tkinter
@@ -162,16 +166,19 @@ from tkinter import *
 
 
 def send():
-   # msg = EntryBox.get("1.0",'end-1c').strip()
-   # EntryBox.delete("0.0",END)
+   global global_context
 
-   with sr.Microphone() as source:
-      # read the audio data from the default microphone
-      audio_data = r.record(source, duration=4)
-      print("Recognizing...")
-      # convert speech to text
-      msg = r.recognize_google(audio_data, language="pt-BR")
-      print(msg)
+   if global_context == ['search_class_by_student']:
+      msg = EntryBox.get("1.0",'end-1c').strip()
+      EntryBox.delete("0.0",END)
+   else:
+      with sr.Microphone() as source:
+         # read the audio data from the default microphone
+         audio_data = r.record(source, duration=4)
+         print("Recognizing...")
+         # convert speech to text
+         msg = r.recognize_google(audio_data, language="pt-BR")
+         print(msg)
 
    if msg != '':
       ChatLog.config(state=NORMAL)
