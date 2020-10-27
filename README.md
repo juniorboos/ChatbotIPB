@@ -16,7 +16,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 <p align="center">
-  <img src="assets/screenshot.png" alt="Logo" width="600">
+  [![](assets/screenshot.png)](https://youtu.be/gOLF7uMMAAM)
 </p>
 
 This is a conversation module for a assistant robot in the Polytechnic Institute of Bragança.
