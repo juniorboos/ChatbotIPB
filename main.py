@@ -181,7 +181,7 @@ def send():
       audio_data = r.record(source, duration=4)
       print("Recognizing...")
       # convert speech to text
-      msg = r.recognize_google(audio_data, language="pt-BR")
+      msg = r.recognize_google(audio_data, language="pt-PT")
       print(msg)
 
    if global_context == ['search_class_by_student']:

@@ -31,7 +31,7 @@
         },
         {"tag": "classroom_search",
          "patterns": ["Eu quero encontrar uma sala", "Localização de sala", "Eu quero saber onde uma sala fica", "Mostre-me a localização de uma sala"],
-         "responses": ["Por favor, informe o nome do local"],
+         "responses": ["Por favor, informe o nome do local ou número da sala"],
          "context": ["search_classroom_by_number"]
         },
         {"tag": "search_classroom_by_number",
