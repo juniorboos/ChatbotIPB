@@ -115,7 +115,7 @@ def getResponse(message, ints, intents_json, userID='123', show_details=True):
 
 def search_class_by_student(msg):
    print("Entrouuuuuu")
-   c.execute('SELECT LOGIN FROM docente WHERE NOME = ?', (msg,))
+   c.execute('SELECT LOGIN FROM docente WHERE EMP_NUM = ?', (msg,))
    data = c.fetchone()
    print(data[0])
    c.execute('SELECT ID_AULA FROM aula_docente WHERE LOGIN = ?', (data[0],))
@@ -172,17 +172,20 @@ from tkinter import *
 def send():
    global global_context
 
+   # if global_context == ['search_class_by_student']:
+   #    msg = EntryBox.get("1.0",'end-1c').strip()
+   #    EntryBox.delete("0.0",END)
+   # else:
+   with sr.Microphone() as source:
+      # read the audio data from the default microphone
+      audio_data = r.record(source, duration=4)
+      print("Recognizing...")
+      # convert speech to text
+      msg = r.recognize_google(audio_data, language="pt-BR")
+      print(msg)
+      
    if global_context == ['search_class_by_student']:
-      msg = EntryBox.get("1.0",'end-1c').strip()
-      EntryBox.delete("0.0",END)
-   else:
-      with sr.Microphone() as source:
-         # read the audio data from the default microphone
-         audio_data = r.record(source, duration=4)
-         print("Recognizing...")
-         # convert speech to text
-         msg = r.recognize_google(audio_data, language="pt-BR")
-         print(msg)
+      msg = msg.replace(" ", "")
 
    if msg != '':
       ChatLog.config(state=NORMAL)
