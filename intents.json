@@ -21,7 +21,7 @@
         },
         {"tag": "options",
          "patterns": ["Como você pode me ajudar?", "O que você pode fazer?", "Que tipo de ajuda você oferece?", "Como você pode ajudar?", "Qual suporte é oferecido?"],
-         "responses": ["Eu posso ajudar com a localização de salas e auditórios, cronograma de aulas, etc."],
+         "responses": ["Eu posso ajudar com a localização de salas e cronograma de aulas."],
          "context": [""]
         },
         {"tag": "class_search",

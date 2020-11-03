@@ -183,7 +183,7 @@ def send():
       # convert speech to text
       msg = r.recognize_google(audio_data, language="pt-BR")
       print(msg)
-      
+
    if global_context == ['search_class_by_student']:
       msg = msg.replace(" ", "")
 
@@ -234,12 +234,12 @@ scrollbar = Scrollbar(base, command=ChatLog.yview, cursor="heart")
 ChatLog['yscrollcommand'] = scrollbar.set
 
 #Create Button to send message
-SendButton = Button(base, font=("Verdana",12,'bold'), text="Send", width="12", height=5,
+SendButton = Button(base, font=("Verdana",12,'bold'), text="Send", width="38", height=5,
                     bd=0, bg="#32de97", activebackground="#3c9d9b",fg='#ffffff',
                     command= send )
 
 #Create the box to enter message
-EntryBox = Text(base, bd=0, bg="white",width="29", height="5", font="Arial")
+# EntryBox = Text(base, bd=0, bg="white",width="29", height="5", font="Arial")
 #EntryBox.bind("<Return>", send)
 
 canvas = Canvas(base, width=1000, height=1000)
@@ -247,7 +247,7 @@ canvas = Canvas(base, width=1000, height=1000)
 #Place all components on the screen
 scrollbar.place(x=376,y=6, height=886)
 ChatLog.place(x=6,y=6, height=886, width=370)
-EntryBox.place(x=128, y=901, height=90, width=265)
+# EntryBox.place(x=128, y=901, height=90, width=265)
 SendButton.place(x=6, y=901, height=90)
 canvas.place(x=400, y=0, height=1000, width=1000)
 
