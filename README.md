@@ -22,7 +22,7 @@
 </p>
 
 
-This is a conversation module for a assistant robot in the Polytechnic Institute of Bragança.
+This is a conversation module for an assistant robot in the Polytechnic Institute of Bragança.
 
 ### Features
 
